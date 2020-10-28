@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header">
+              You are in the Deck: Prueba
+            </div>
+            <div class="card-body">
+                <h5 *ngIf="!finish">Reviewing Cards! ({{indexReview + 1}} of {{numCards}})</h5>
+                <h5 *ngIf="finish">You have finished your review! :)</h5>
+                <app-card *ngIf="!finish" [show]="show"></app-card>
+            </div>
+            <div class="card-footer">
+                <div *ngIf="!finish" class="col-12 mb-2"><button (click)="flipCard()" type="button" class="btn btn-info btn-block">Flip Card</button></div>
+                <div class="card card-body w-100 my-2" *ngIf="evaluate">
+                    <div class="row">
+                        <div class="col-12">How was it going? :)</div>
+                    </div>
+                    
+                    <div class="row" *ngIf="!finish">
+                        <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Poor</button></div>
+                        <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Good</button></div>
+                        <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Nice</button></div>
+                    </div>
+                    <div class="row" *ngIf="finish">
+                      <h3>Thanks for use the app! :)</h3>
+                    </div>
+                </div>
+                <div class="col-12 d-flex justify-content-end"><button routerLink="/" type="button" class="btn btn-danger">Close</button></div>
+                
+            </div>
+          </div>
+    </div>
+    <div class="col-3"></div>
+</div>

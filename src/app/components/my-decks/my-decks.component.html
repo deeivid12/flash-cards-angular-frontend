@@ -1,0 +1,7 @@
+<div class="container">
+    <div class="row" *ngIf="decks && decks.length > 0">
+      <div class="col-4" *ngFor="let deck of decks">
+        <app-deck [deck]=deck></app-deck>
+      </div>
+    </div>
+  </div>

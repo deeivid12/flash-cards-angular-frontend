@@ -1,0 +1,42 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCentered">
+    Review Deck
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal" id="exampleModalCentered" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenteredLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 *ngIf="!finish" class="modal-title" id="exampleModalCenteredLabel">Reviewing Cards! ({{indexReview + 1}} of {{numCards}})</h5>
+          <h5 *ngIf="finish" class="modal-title" id="exampleModalCenteredLabel">You have finished your review! :)</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-card [show]="show"></app-card>
+        </div>
+        <div class="modal-footer">
+            <div class="card card-body w-100" *ngIf="evaluate">
+                <div class="row">
+                    <div class="col-12">How was it going? :)</div>
+                </div>
+                
+                <div class="row" *ngIf="!finish">
+                    <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Poor</button></div>
+                    <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Good</button></div>
+                    <div (click)="evaluateCard()" class="col-4"><button type="button" class="btn btn-info">Nice</button></div>
+                </div>
+                <div class="row" *ngIf="finish">
+                  <h3>Thanks for use the app! :)</h3>
+                </div>
+            </div>
+            <button #closeModal (click)=hideModal() type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button *ngIf="!finish" type="button" class="btn btn-primary" (click)=flipCard()>Flip card</button>
+          
+            
+        </div>
+      </div>
+    </div>
+  </div>
