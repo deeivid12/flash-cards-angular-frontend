@@ -1,0 +1,44 @@
+{
+    "results": [
+        {
+            "id_card": 1,
+            "front": "Hello",
+            "back": "Hola",
+            "id_deck": 1,
+            "grade": 0,
+            "update_date": "2020-11-02 20:35:00.230375",
+            "creation_date": "2020-11-02 20:35:00.230375",
+            "last_review": "None"
+        },
+        {
+            "id_card": 2,
+            "front": "Bye",
+            "back": "Chau",
+            "id_deck": 1,
+            "grade": 0,
+            "update_date": "2020-11-02 20:35:02.673699",
+            "creation_date": "2020-11-02 20:35:02.673699",
+            "last_review": "None"
+        },
+        {
+            "id_card": 3,
+            "front": "Home",
+            "back": "Hogar",
+            "id_deck": 1,
+            "grade": 0,
+            "update_date": "2020-11-02 20:35:06.860446",
+            "creation_date": "2020-11-02 20:35:06.860446",
+            "last_review": "None"
+        },
+        {
+            "id_card": 4,
+            "front": "Hello world",
+            "back": "Hola mundo",
+            "id_deck": 1,
+            "grade": 0,
+            "update_date": "2020-11-02 20:35:10.206323",
+            "creation_date": "2020-11-02 20:35:10.206323",
+            "last_review": "None"
+        }
+    ]
+}

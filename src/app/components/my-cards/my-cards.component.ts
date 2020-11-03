@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-my-cards',
@@ -7,11 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyCardsComponent implements OnInit {
 
-  textoPrueba = "Texto de prueba";
+  private subscriptions = new Array<Subscription>();
+  cards = []
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.getCards()
+  }
+
+  getCards(idDeck?:number):void {
+    this.subscriptions.push(this.dataService.getCards().subscribe(
+      response =>{
+        console.log(response);
+        this.cards = response["results"];
+    }))
   }
 
 }

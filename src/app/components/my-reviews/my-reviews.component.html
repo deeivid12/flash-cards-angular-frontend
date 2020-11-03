@@ -8,7 +8,7 @@
             <div class="card-body">
                 <h5 *ngIf="!finish">Reviewing Cards! ({{indexReview + 1}} of {{numCards}})</h5>
                 <h5 *ngIf="finish">You have finished your review! :)</h5>
-                <app-card *ngIf="!finish" [show]="show"></app-card>
+                <h3 *ngIf="!finish">{{show}}</h3>
             </div>
             <div class="card-footer">
                 <div *ngIf="!finish" class="col-12 mb-2"><button (click)="flipCard()" type="button" class="btn btn-info btn-block">Flip Card</button></div>

@@ -19,7 +19,7 @@ const routes: Routes = [
     component: MyDecksComponent 
   },
   {
-    path: 'review',
+    path: 'review/:idDeck',
     component: MyReviewsComponent 
   }
 ];

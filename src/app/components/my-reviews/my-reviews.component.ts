@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Component({
   selector: 'app-my-reviews',
@@ -17,37 +20,20 @@ export class MyReviewsComponent implements OnInit{
   numCards: number;
   finish = false
 
-   
+  private subscriptions = Array<Subscription>()
 
+  idDeck: number;
+  cards = []
 
-  cards = [
-    {
-      "back":"card1 back",
-      "front":"card1 front"
-    },
-    {
-      "back":"card2 back",
-      "front":"card2 front"
-    },
-    {
-      "back":"card3 back",
-      "front":"card3 front"
-    },
-    {
-      "back":"card4 back",
-      "front":"card4 front"
-    },
-    {
-      "back":"card5 back",
-      "front":"card5 front"
-    }
-  ]
-
-  constructor() { }
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.countCards();
-    this.reviewCard()
+    this.idDeck = +this.route.snapshot.paramMap.get('idDeck');
+    console.log("este es el idDeck", this.idDeck);
+    this.getCards()
+    //this.countCards();
+    //this.reviewCard()
     
   }
 
@@ -110,6 +96,16 @@ export class MyReviewsComponent implements OnInit{
     this.indexEvaluate = 0;
     this.numCards = 0;
     this.finish = false
+  }
+
+  getCards(idDeck?:number): void {
+    this.subscriptions.push(this.dataService.getCards().subscribe(
+      response => {
+        this.cards = response["results"];
+        this.countCards();
+        this.reviewCard()
+      }
+    ))
   }
   
 

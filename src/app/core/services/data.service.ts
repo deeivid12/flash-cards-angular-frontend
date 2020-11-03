@@ -13,6 +13,7 @@ export class DataService implements DataServiceInterface{
   private cardsPath = "my_cards"
 
   private decksPathMock = "../../assets/mocks/myDecksResponse.json"
+  private cardsPathMock = "../../assets/mocks/myCardsResponse.json"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -21,12 +22,13 @@ export class DataService implements DataServiceInterface{
     //return this.httpClient.get<any>(this.privateApiUrl + this.decksPath, {})
     return this.httpClient.get<any>(this.decksPathMock, {})
   }
-  getCards(idDeck: any): Observable<any> {
+  getCards(idDeck?: any): Observable<any> {
     
     const payload = {
       "id_deck": idDeck
     } 
 
-    return this.httpClient.post<any>(this.privateApiUrl + this.cardsPath, payload)
+    //return this.httpClient.post<any>(this.privateApiUrl + this.cardsPath, payload)
+    return this.httpClient.get<any>(this.cardsPathMock, {})
   }
 }
