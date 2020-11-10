@@ -1,6 +1,6 @@
 <div class="container">
-    <div class="row" *ngFor="let card of cards">
-      <div class="col-3">
+    <div class="row" *ngIf="cards && cards.length > 0">
+      <div *ngFor="let card of cards" class="col-4">
         <app-card [cardData]="card"></app-card>
       </div>
     </div>
