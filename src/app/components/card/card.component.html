@@ -1,6 +1,14 @@
 <div class="card my-3">
     <div class="card-body">
-      <h4>Front:</h4>
+      <div class="row">
+        <div class="col-8">
+          <h4>Front:</h4>
+        </div>
+        <div class="col-4 col-icons">
+          <a href="#"><span class="material-icons edit-icon">create</span></a>
+          <a href="#"><span class="material-icons delete-icon danger">delete_forever</span></a>
+        </div>
+      </div>
       <p contenteditable="false" class="card-text">{{ cardData.front }}</p>
     </div>
     <div class="card-footer">

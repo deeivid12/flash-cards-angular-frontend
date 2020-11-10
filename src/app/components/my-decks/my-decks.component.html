@@ -1,4 +1,5 @@
 <div class="container">
+  <button class="btn btn-info">Add Deck</button>
     <div class="row" *ngIf="decks && decks.length > 0">
       <div class="col-md-4 col-sm-12" *ngFor="let deck of decks">
         <app-deck [deck]=deck></app-deck>
