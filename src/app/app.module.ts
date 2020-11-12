@@ -10,6 +10,8 @@ import { MyDecksComponent } from './components/my-decks/my-decks.component';
 import { MyCardsComponent } from './components/my-cards/my-cards.component';
 import { ReviewComponent } from './components/review/review.component';
 import { MyReviewsComponent } from './components/my-reviews/my-reviews.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EditCardComponent } from './components/edit-card/edit-card.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,14 @@ import { MyReviewsComponent } from './components/my-reviews/my-reviews.component
     MyDecksComponent,
     MyCardsComponent,
     ReviewComponent,
-    MyReviewsComponent
+    MyReviewsComponent,
+    EditCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClient],
   bootstrap: [AppComponent]
