@@ -5,7 +5,7 @@
       <div class="row d-flex justify-content-center">
         <div class="col-1"></div>
         <div class="col-10">
-          <a class="btn btn-primary justify-content-center mr-1" routerLink="/my_cards">Edit Cards</a>
+          <a class="btn btn-primary justify-content-center mr-1" [routerLink]="['/my_cards', deck.id_deck]">Edit Cards</a>
           <a class="btn btn-primary justify-content-center mr-1" [routerLink]="['/review', deck.id_deck]">Review</a>
           <!--app-review class="ml-1"></app-review-->
         </div>

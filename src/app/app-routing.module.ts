@@ -12,7 +12,7 @@ const routes: Routes = [
     component: MyDecksComponent 
   },
   {
-    path: 'my_cards',
+    path: 'my_cards/:idDeck',
     component: MyCardsComponent 
   },
   {
@@ -24,7 +24,7 @@ const routes: Routes = [
     component: MyReviewsComponent 
   },
   {
-    path: 'editCard/:idCard',
+    path: 'editCard/:idDeck/:idCard',
     component: EditCardComponent 
   }
 ];

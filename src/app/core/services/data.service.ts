@@ -13,9 +13,13 @@ export class DataService implements DataServiceInterface{
   private cardsPath = "my_cards"
   private editDeckPath = "edit_deck"
   private createDeckPath = "create_deck"
+  private getCardPath = "my_card"
+  private editCardPath = "edit_card"
+  private deleteCardPath = "delete_card"
 
   private decksPathMock = "../../assets/mocks/myDecksResponse.json"
   private cardsPathMock = "../../assets/mocks/myCardsResponse.json"
+  private getCardMock = "../../assets/mocks/card.json"
 
   constructor(private httpClient: HttpClient) { }
 
@@ -54,7 +58,43 @@ export class DataService implements DataServiceInterface{
       "id_deck": idDeck
     } 
 
-    //return this.httpClient.post<any>(this.privateApiUrl + this.cardsPath, payload)
-    return this.httpClient.get<any>(this.cardsPathMock, {})
+    return this.httpClient.post<any>(this.privateApiUrl + this.cardsPath, payload)
+    //return this.httpClient.get<any>(this.cardsPathMock, {})
   }
+
+  getCardById(idDeck?: any, idCard?: any): Observable<any> {
+
+    const payload = {
+      "id_deck": idDeck,
+      "id_card": idCard
+    }
+
+    return this.httpClient.post<any>(this.privateApiUrl + this.getCardPath, payload)
+    //return this.httpClient.get<any>(this.getCardMock, {})
+  }
+
+  editCard(card: any): Observable<any> {
+
+    const payload = {
+      "id_deck": card.id_deck,
+      "id_card": card.id_card,
+      "front": card.front,
+      "back": card.back
+    };
+
+    return this.httpClient.put<any>(this.privateApiUrl + this.editCardPath, payload)
+
+  }
+
+  deleteCard(idDeck?, idCard?): Observable<any> {
+
+    const payload = {
+      "id_deck": idDeck,
+      "id_card": idCard
+    }
+
+    return this.httpClient.post<any>(this.privateApiUrl + this.deleteCardPath, payload)
+  }
+
+  
 }

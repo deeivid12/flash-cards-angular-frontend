@@ -1,14 +1,12 @@
 <div class="card my-3">
-    <div class="card-body">
-      <div class="row">
-        <div class="col-8">
-          <h4>Front:</h4>
-        </div>
-        <div class="col-4 col-icons">
-          <a [routerLink]="['/editCard', cardData.id_card]"><span class="material-icons edit-icon">create</span></a>
-          <a href="#"><span class="material-icons delete-icon danger">delete_forever</span></a>
-        </div>
+  <div class="card-header">
+      <div class="d-flex justify-content-end">
+        <a [routerLink]="['/editCard', cardData.id_deck, cardData.id_card]" class="btn btn-link edit-btn"><span class="material-icons">create</span></a>
+        <button (click)="onClick()" class="btn btn-link delete-btn"><span class="material-icons">delete_forever</span></button>
       </div>
+  </div>
+    <div class="card-body">
+      <h4>Front:</h4>
       <p contenteditable="false" class="card-text">{{ cardData.front }}</p>
     </div>
     <div class="card-footer">

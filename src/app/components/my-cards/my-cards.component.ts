@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from 'src/app/core/services/data.service';
 
@@ -10,16 +11,19 @@ import { DataService } from 'src/app/core/services/data.service';
 export class MyCardsComponent implements OnInit {
 
   private subscriptions = new Array<Subscription>();
+  idDeck: number;
   cards = []
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.getCards()
+    this.idDeck = +this.route.snapshot.paramMap.get('idDeck');
+    this.getCards(this.idDeck)
   }
 
   getCards(idDeck?:number):void {
-    this.subscriptions.push(this.dataService.getCards().subscribe(
+    this.subscriptions.push(this.dataService.getCards(idDeck).subscribe(
       response =>{
         console.log(response);
         this.cards = response["results"];

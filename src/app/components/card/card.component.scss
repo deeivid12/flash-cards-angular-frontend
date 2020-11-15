@@ -1,3 +1,8 @@
+.card-header {
+    padding: 0;
+    margin: 0;
+}
+
 .card-body {
     height: 100px;
     min-height: 100px;
@@ -14,18 +19,26 @@
     height: 100px;
     min-height: 100px;
     max-height: 100px;
+    background-color: floralwhite;
+}
+/*
+.col-icons {
+    padding: 0;
+    margin: 0;
+    position: relative;
+    bottom: 20px;
+    left: 100px;
+}
+*/
+
+.edit-btn {
+    padding: 0px 2px 0px 2px;
+    margin: 0px 5px 0px 5px;
 }
 
-
-.edit-icon {
-    position: relative;
-    left: 20px;
-    bottom: 15px;
-}
-
-.delete-icon {
-    position: relative;
-    left: 35px;
-    bottom: 15px;
+.delete-btn {
+    padding: 0px 2px 0px 2px;
+    margin: 0px 5px 0px 5px;
     color: rgba(255, 0, 0, 0.815);
 }
+
